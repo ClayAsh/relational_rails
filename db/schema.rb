@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_10_000711) do
+ActiveRecord::Schema.define(version: 2022_05_10_181522) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,18 +18,20 @@ ActiveRecord::Schema.define(version: 2022_05_10_000711) do
   create_table "projects", force: :cascade do |t|
     t.string "name"
     t.boolean "active"
-    t.float "funding"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer "funding"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "volunteers", force: :cascade do |t|
     t.string "name"
-    t.boolean "registeres"
+    t.boolean "registered"
     t.integer "hours_available"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer "project_id"
+    t.bigint "project_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_volunteers_on_project_id"
   end
 
+  add_foreign_key "volunteers", "projects"
 end

@@ -1,3 +1,0 @@
-class Projects < ApplicationRecord
-    
-end

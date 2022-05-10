@@ -1,11 +1,11 @@
 class ProjectsController < ApplicationController 
   def index 
-    @projects = Projects.all 
+     @project = Project.all 
   end
 
   def show 
-    require 'pry'; binding.pry
-    @projects = Projects.find(params[:id])
+    #  require 'pry'; binding.pry
+    @project = Project.find(params[:id])
   end
 
 end
