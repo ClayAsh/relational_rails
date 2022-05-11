@@ -1,5 +1,7 @@
 class Project < ApplicationRecord
-    # validates_presence_of :name, :funding 
-    # validates_presence_of :active
     has_many :volunteers 
+
+    validates_presence_of :name
+    validates_presence_of :funding
+    validates :active, inclusion: [true, false]
 end
