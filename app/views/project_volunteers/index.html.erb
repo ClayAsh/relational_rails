@@ -1,0 +1,11 @@
+
+    <h1>Volunteers for this Project</h1>
+    <% @volunteers.each do |volunteer|  %>
+        <h3><%= volunteer.name %></h3>
+        <p>Hours Available: <%= volunteer.hours_available %></p>
+        <p>Is this Volunteer Registered? <%= volunteer.registered %></p>
+        <p>Volunteer Start Date:<%= volunteer.created_at %></p>
+        <p>Information Updated:<%= volunteer.updated_at %></p>
+    <% end %>
+    <p>Current/Past Projects:<%= @project.name %></p>
+  

@@ -6,6 +6,7 @@ RSpec.describe 'project show page' do
 
     it 'dislays project attributes' do 
       visit "/projects/#{project_1.id}"
+
       expect(page).to have_content(project_1.name)
       expect(page).to have_content(project_1.active)
       expect(page).to have_content(project_1.funding)
