@@ -5,3 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+# Project.destroy_all
+# Volunteer.destroy_all 
+# @project = Project.create!(name: "Mural", active:false, funding:3000)
+# @project.volunteers.create!(name: "John", registered:false, hours_available:5)

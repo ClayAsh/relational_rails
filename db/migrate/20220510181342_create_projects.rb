@@ -3,9 +3,9 @@ class CreateProjects < ActiveRecord::Migration[5.2]
     create_table :projects do |t|
       t.string :name
       t.boolean :active
-      t.float :funding
-      t.timestamp :created_at
-      t.timestamp :updated_at
+      t.integer :funding
+
+      t.timestamps
     end
   end
 end
