@@ -1,0 +1,7 @@
+ <a href="/volunteers">Volunteer Information</a>
+ <h1><%= @volunteer.name %></h1>
+  <p>Is this Volunteer registered? <%= @volunteer.registered %></p>
+  <p>Hours Available: <%= @volunteer.hours_available %></p>
+  <p>Volunteer Start Date:<%= @volunteer.created_at %></p>
+  <p>Information Updated:<%= @volunteer.updated_at %></p>
+  <p>Current/Past Projects:<%= @volunteer.project.name %></p>
