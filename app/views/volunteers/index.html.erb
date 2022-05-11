@@ -1,0 +1,6 @@
+<h1>All Volunteers</h1>
+
+<% @volunteer.each do |volunteer| %>
+  <h3><a href="/volunteers/<%= volunteer.id %>"><%= volunteer.name %></a></h3>
+
+<% end %>
