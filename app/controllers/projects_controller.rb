@@ -1,7 +1,6 @@
 class ProjectsController < ApplicationController 
   def index 
-     @projects = Project.all 
-     @projects.order(:created_at)
+     @projects = Project.ordered_by_time
   end
 
   def show 
