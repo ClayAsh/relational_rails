@@ -5,20 +5,31 @@ RSpec.describe "project volunteer index page" do
 	let!(:volunteer_1) {project_1.volunteers.create!(name:"John", registered:false, hours_available:5)}
 	let!(:volunteer_2) {project_1.volunteers.create!(name:"Sam", registered:true, hours_available:10)}
 	
+	it 'has links to project and volunteer index' do 
+
+		visit "/projects/#{project_1.id}/volunteers"
+
+		click_link 'Projects'
+		expect(current_path).to eq('/projects')
+
+		click_link 'Volunteers'
+		expect(current_path).to eq('/volunteers')
+	end 
+
 	it "shows volunteers of project" do 
 	
 		visit "/projects/#{project_1.id}/volunteers"
-		
+
 		within('#volunteer-0') do
 			expect(page).to have_content("John")
 			expect(page).to have_content(5)
 			expect(page).to have_content(false)
-		 end 
+		end 
 
-		 within('#volunteer-1') do
+		within('#volunteer-1') do
 			expect(page).to have_content("Sam")
 			expect(page).to have_content(10)
 			expect(page).to have_content(true)
-		 end 
-	end
-end
+		end 
+	end 
+end 
