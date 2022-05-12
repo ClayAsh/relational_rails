@@ -6,13 +6,12 @@ RSpec.describe 'project show page' do
 
   it "shows all projects" do 
     visit "/projects"
-    
+
     within('#project-0') do 
       expect(page).to have_content("Mural")
       expect(page).to have_content(project_1.name)
     end 
   
-  # save_and_open_page
     within('#project-1') do 
       expect(page).to have_content("Community Garden")
       expect(page).to have_content(project_2.name)

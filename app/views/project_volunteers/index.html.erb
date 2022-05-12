@@ -1,11 +1,14 @@
 
     <h1>Volunteers for this Project</h1>
-    <% @volunteers.each do |volunteer|  %>
+    <h2><%= @project.name %></h2>
+    <% @volunteers.each_with_index do |volunteer, index|  %>
+    <div id="volunteer-<%= index %>"> 
         <h3><%= volunteer.name %></h3>
         <p>Hours Available: <%= volunteer.hours_available %></p>
         <p>Is this Volunteer Registered? <%= volunteer.registered %></p>
         <p>Volunteer Start Date:<%= volunteer.created_at %></p>
         <p>Information Updated:<%= volunteer.updated_at %></p>
+     </div>
     <% end %>
-    <p>Current/Past Projects:<%= @project.name %></p>
+    
   
