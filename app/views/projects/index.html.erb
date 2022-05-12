@@ -1,5 +1,7 @@
 <a href="/projects">Projects</a>
 <a href='/volunteers'>Volunteers</a>
+<a href="/projects/new">Create a New Project</a>
+
 <h1>All Projects</h1>
 
 <% @projects.each_with_index do |project, index| %>
@@ -8,4 +10,6 @@
    <h3><a href="/projects/<%= project.id %>"><%= project.name %></a></h3>
    <p>Project Start Date: <%= project.created_at %></p>
   </div>
+
 <% end %>
+
