@@ -10,4 +10,8 @@
   <h4>Updated at</h4>
   <p><%= @project.updated_at %></p>
   <p>Number of Volunteers: <%= @project.volunteers.length %></p>
-  <a href='/projects/<%= @project.id %>/volunteers'>Volunteers for this Project</a>
+
+<ul>
+  <li><a href='/projects/<%= @project.id %>/volunteers'>Current Volunteers</a></li>
+  <li><a href="/projects/<%= @project.id %>/edit">Update Project</a></li>
+</ul>
