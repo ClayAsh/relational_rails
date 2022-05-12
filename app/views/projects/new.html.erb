@@ -1,7 +1,12 @@
 <form action="/projects" method="post">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <p>Enter a new Project:</p>
-  <input type='text' name='project[title]'/><br/>
-  <textarea name='project[description]'></textarea><br/>
-  <input type='submit'/>
+  <h2>Enter a new Project:</h2>
+  <p>What is your Project's name?</p>
+  <input type='text' name='project[name]'/><br/>
+  <p>Is this Project active? (true or false please) </p>
+  <input type='text' name='project[active]'/><br/>
+  <p>How much funding does this Project have?</p>
+  <input type='text' name='project[funding]'/><br/>
+  <input type='submit' value='Create Project'>
 </form>
+
