@@ -12,6 +12,8 @@ RSpec.describe 'project show page' do
       expect(page).to have_content(project_1.funding)
       expect(page).to have_content(project_1.created_at)
       expect(page).to have_content(project_1.updated_at)
+      expect(page).to have_content(project_1.volunteers.length)
+
       expect(page).to_not have_content(project_2.name)
       expect(page).to_not have_content(project_2.active)
       expect(page).to_not have_content(project_2.funding)
