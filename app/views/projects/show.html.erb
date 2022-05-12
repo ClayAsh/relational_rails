@@ -8,5 +8,5 @@
   <p><%= @project.created_at %></p>
   <h4>Updated at</h4>
   <p><%= @project.updated_at %></p>
-
+  <p>Number of Volunteers: <%= @project.volunteers.length %></p>
 <a href='/projects/<%= @project.id %>/volunteers'>Volunteers for this Project</a>
