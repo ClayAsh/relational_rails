@@ -1,6 +1,7 @@
- <a href="/projects">Project Information</a>
- <h1><%= @project.name %></h1>
- <h4>Is this project active?</h4>
+  <a href="/projects">Projects</a>
+  <a href='/volunteers'>Volunteers</a>
+  <h1><%= @project.name %></h1>
+  <h4>Is this project active?</h4>
   <p><%= @project.active %></p>
   <h4>Funding</h4>
   <p><%= @project.funding %></p>
@@ -9,4 +10,4 @@
   <h4>Updated at</h4>
   <p><%= @project.updated_at %></p>
   <p>Number of Volunteers: <%= @project.volunteers.length %></p>
-<a href='/projects/<%= @project.id %>/volunteers'>Volunteers for this Project</a>
+  <a href='/projects/<%= @project.id %>/volunteers'>Volunteers for this Project</a>
