@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'new project page' do
+RSpec.describe 'new projectr' do
   it 'can create a new project' do     
     visit '/projects/new' 
     
