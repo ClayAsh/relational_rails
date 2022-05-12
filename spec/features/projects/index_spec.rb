@@ -10,11 +10,13 @@ RSpec.describe 'project show page' do
     within('#project-0') do 
       expect(page).to have_content("Mural")
       expect(page).to have_content(project_1.name)
+      expect(page).to have_content(project_1.created_at)
     end 
   
     within('#project-1') do 
       expect(page).to have_content("Community Garden")
       expect(page).to have_content(project_2.name)
+      expect(page).to have_content(project_2.created_at)
     end 
   end
 end
