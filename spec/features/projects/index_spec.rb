@@ -15,13 +15,13 @@ RSpec.describe 'project index page' do
     visit "/projects"
 
     within('#project-0') do 
-      expect(page).to have_content(project_1.name)
-      expect(page).to have_content(project_1.created_at)
+      expect(page).to have_content(project_2.name)
+      expect(page).to have_content(project_2.created_at)
     end 
   
     within('#project-1') do 
-      expect(page).to have_content(project_2.name)
-      expect(page).to have_content(project_2.created_at)
+      expect(page).to have_content(project_1.name)
+      expect(page).to have_content(project_1.created_at)
     end 
   end
 end
