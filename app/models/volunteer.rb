@@ -9,4 +9,8 @@ class Volunteer < ApplicationRecord
     where(registered: true)
   end
 
+  def self.sort_alphabeticaly 
+    order(:name)
+  end
+
 end

@@ -2,7 +2,11 @@ class ProjectVolunteersController < ApplicationController
 
 	def index
 			@project = Project.find(params[:project_id])
+		if params[:sort]
+			@volunteers = @project.volunteers.sort_alphabeticaly
+		else 
 			@volunteers = @project.volunteers
+		end
 	end
 
 	def new 
