@@ -24,4 +24,9 @@ class VolunteersController < ApplicationController
     redirect_to "/volunteers/#{volunteer.id}"
   end
 
+   def destroy
+    Volunteer.destroy(params[:id])
+    redirect_to '/volunteers'
+  end
+
 end
