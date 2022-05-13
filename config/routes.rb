@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get '/volunteers/:id', to: 'volunteers#show'
   get 'volunteers/:id/edit', to: 'volunteers#edit'
   patch '/volunteers/:id', to: 'volunteers#update'
+  delete '/volunteers/:id', to: 'volunteers#destroy'
  
   get '/projects/:project_id/volunteers', to: 'project_volunteers#index'
   get '/projects/:project_id/volunteers/new', to: 'project_volunteers#new'
