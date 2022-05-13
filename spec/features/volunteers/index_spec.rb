@@ -11,13 +11,16 @@ RSpec.describe 'volunteer show page' do
 
     click_link 'Projects'
     expect(current_path).to eq('/projects')
+
+    click_link 'Volunteers'
+		expect(current_path).to eq('/volunteers')
   end 
 
-  it "shows all volunteers" do 
+  it "shows all volunteers who are registered" do 
     
     visit "/volunteers"
   
-    expect(page).to have_content(volunteer_1.name)
+    expect(page).to_not have_content(volunteer_1.name)
     expect(page).to have_content(volunteer_2.name)
   end
 end

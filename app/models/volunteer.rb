@@ -5,4 +5,8 @@ class Volunteer < ApplicationRecord
     validates_presence_of :hours_available
     validates :registered, inclusion: [true, false]
 
+  def self.only_true
+    where(registered: true)
+  end
+
 end
