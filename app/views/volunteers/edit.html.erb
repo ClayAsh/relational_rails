@@ -1,0 +1,12 @@
+<form action="/volunteers/<%= @volunteer.id %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="_method" value="PATCH" />
+  <h2>Update volunteer</h2>
+  <p>What is your name?</p>
+  <input type='text' name='volunteer[name]' value="<%= @volunteer.name %>"/><br/>
+  <p>Are you already registered? (true or false please) </p>
+  <input type='text' name='volunteer[registered]' value="<%= @volunteer.registered %>"/><br/>
+  <p>How many hours are you available?</p>
+  <input type='text' name='volunteer[hours_available]' value="<%= @volunteer.hours_available %>"/><br/>
+  <input type='submit' value='Update volunteer'>
+</form>
