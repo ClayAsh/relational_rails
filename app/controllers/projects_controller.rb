@@ -35,4 +35,9 @@ class ProjectsController < ApplicationController
     redirect_to "/projects/#{project.id}"
   end
 
+  def destroy
+    Project.destroy(params[:id])
+    redirect_to '/projects'
+  end
+
 end
