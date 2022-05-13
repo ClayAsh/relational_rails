@@ -1,5 +1,5 @@
 class Project < ApplicationRecord
-    has_many :volunteers 
+    has_many :volunteers, dependent: :destroy 
 
     validates_presence_of :name
     validates_presence_of :funding

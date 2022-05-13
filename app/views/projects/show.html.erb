@@ -14,4 +14,7 @@
 <ul>
   <li><a href='/projects/<%= @project.id %>/volunteers'>Current Volunteers</a></li>
   <li><a href="/projects/<%= @project.id %>/edit">Update Project</a></li>
+  <li><%= link_to 'Delete Project', "/projects/#{@project.id}", method: :delete %></li>
+
 </ul>
+
