@@ -14,6 +14,7 @@ RSpec.describe 'volunteer show page' do
 
 		click_link 'Volunteers'
 		expect(current_path).to eq('/volunteers')
+
 	end 
 
 	it 'dislays volunteer attributes' do 
