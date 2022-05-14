@@ -9,11 +9,33 @@ RSpec.describe 'project show page' do
     visit "/projects/#{project_1.id}"
 
     click_link 'Projects'
+
     expect(current_path).to eq('/projects')
 
     click_link 'Volunteers'
+
     expect(current_path).to eq('/volunteers')
   end 
+
+  it 'has link to delete project' do 
+
+    visit "/projects/#{project_1.id}"
+
+    click_link 'Delete Project'
+
+    expect(page).to_not have_content(project_1.name)
+
+  end
+
+	it 'has link to update project' do 
+
+		visit "/projects/#{project_1.id}"
+
+		click_link 'Update Project'
+
+		expect(page).to_not have_content(project_1.name)
+
+  end
 
   it 'dislays project attributes' do 
     

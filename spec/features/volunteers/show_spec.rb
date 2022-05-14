@@ -17,6 +17,26 @@ RSpec.describe 'volunteer show page' do
 
 	end 
 
+	it 'has link to delete volunteer' do 
+
+		visit "/volunteers/#{volunteer_1.id}"
+
+		click_link 'Delete Volunteer'
+
+		expect(page).to_not have_content(volunteer_1.name)
+
+ 	end
+
+	it 'has link to update volunteer' do 
+
+		visit "/volunteers/#{volunteer_1.id}"
+
+		click_link 'Update Volunteer'
+
+		expect(page).to_not have_content(volunteer_1.name)
+
+  end
+
 	it 'dislays volunteer attributes' do 
 			
 		visit "/volunteers/#{volunteer_1.id}"
