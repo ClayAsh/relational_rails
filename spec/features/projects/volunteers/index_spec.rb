@@ -16,6 +16,34 @@ RSpec.describe "project volunteer index page" do
 		expect(current_path).to eq('/volunteers')
 	end 
 
+	it 'has link to new volunteer' do 
+
+		visit "/projects/#{project_1.id}/volunteers"
+
+		click_link 'Sign Up to Volunteer for this Project!'
+		expect(current_path).to eq("/projects/#{project_1.id}/volunteers/new")
+	end 
+
+	it 'has link to sort volunteers' do 
+
+		visit "/projects/#{project_1.id}/volunteers"
+
+		click_link 'Sort Volunteers Alphabetically'
+		expect(current_path).to eq("/projects/#{project_1.id}/volunteers")
+	end 
+
+	it 'has form to filter by hours available' do 
+
+		visit "/projects/#{project_1.id}/volunteers"
+
+		fill_in 'threshold', with: '10'
+		click_button 'Sort by Available Hours'
+
+		expect(current_path).to eq("/projects/#{project_1.id}/volunteers")
+		expect(page).to have_content("Sam")
+		expect(page).to_not have_content("John")
+	end
+
 	it "shows volunteers of project" do 
 	
 		visit "/projects/#{project_1.id}/volunteers"

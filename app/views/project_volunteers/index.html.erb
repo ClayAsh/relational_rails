@@ -13,5 +13,13 @@
      </div>
     <% end %>
     
-    <li><a href="/projects/<%= @project.id %>/volunteers/new">Sign Up to Volunteer for this Project!</a></li>
-    <li><a href="/projects/<%= @project.id %>/volunteers?sort=asc">Sort Volunteers</a></li>
+  <a href="/projects/<%= @project.id %>/volunteers/new">Sign Up to Volunteer for this Project!</a><br/>
+  <a href="/projects/<%= @project.id %>/volunteers?sort=asc">Sort Volunteers Alphabetically</a><br/>
+    
+
+
+<%= form_with url: "/projects/#{@project.id}/volunteers", method: :get, local: true do |f| %>
+<%= f.label :threshold, "Sort by Hours Available"  %><br/>
+<%= f.text_field :threshold %><br/>
+<%= f.submit "Sort by Available Hours"%><br/>
+<% end %> 

@@ -13,4 +13,8 @@ class Volunteer < ApplicationRecord
     order(:name)
   end
 
+  def self.available_hours_above(threshold)
+    where("hours_available >= ?", threshold)
+  end
+
 end

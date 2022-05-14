@@ -1,6 +1,17 @@
 require 'rails_helper'
 
 RSpec.describe 'new projectr' do
+
+  it 'has link to volunteer and project index' do 
+    visit "/projects"
+
+    click_link 'Volunteers'
+    expect(current_path).to eq('/volunteers')
+
+    click_link 'Projects'
+    expect(current_path).to eq('/projects')
+  end 
+  
   it 'can create a new project' do     
     visit '/projects/new' 
     
