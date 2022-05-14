@@ -4,7 +4,18 @@ RSpec.describe 'update volunteer' do
   let!(:project_1) {Project.create!(name:"Mural", active:false, funding:3000)}
   let!(:volunteer_1) {project_1.volunteers.create!(name:"John", registered:false, hours_available:5)}
 
-  it 'can update a volunteer' do     
+  it 'has link to volunteer and project index' do 
+    visit "/projects"
+
+    click_link 'Volunteers'
+    expect(current_path).to eq('/volunteers')
+
+    click_link 'Projects'
+    expect(current_path).to eq('/projects')
+  end 
+
+  it 'can update a volunteer' do  
+       
     visit "/volunteers/#{volunteer_1.id}/edit" 
     
     fill_in 'volunteer[name]', with: "Mark"

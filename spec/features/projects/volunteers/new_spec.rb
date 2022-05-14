@@ -3,6 +3,16 @@ require 'rails_helper'
 RSpec.describe 'new volunteer page' do
   let!(:project_1) {Project.create!(name:"Food Bank", active:true, funding:8000)}
  
+  it 'has link to volunteer and project index' do 
+    visit "/projects"
+
+    click_link 'Volunteers'
+    expect(current_path).to eq('/volunteers')
+
+    click_link 'Projects'
+    expect(current_path).to eq('/projects')
+  end 
+  
   it 'can create a new volunteer' do     
     visit "/projects/#{project_1.id}/volunteers/new" 
     

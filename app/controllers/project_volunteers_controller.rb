@@ -4,6 +4,8 @@ class ProjectVolunteersController < ApplicationController
 			@project = Project.find(params[:project_id])
 		if params[:sort]
 			@volunteers = @project.volunteers.sort_alphabeticaly
+		elsif params[:threshold]
+			@volunteers = @project.volunteers.available_hours_above(params[:threshold])
 		else 
 			@volunteers = @project.volunteers
 		end
