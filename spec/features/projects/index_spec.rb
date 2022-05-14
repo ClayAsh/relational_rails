@@ -50,6 +50,16 @@ RSpec.describe 'project index page' do
 		end
   end
 
+  it 'has link to delete project 2' do 
+    visit "/projects"
+
+  	within('#project-0') do 
+    click_link 'Delete Project'
+
+    expect(page).to_not have_content(project_2.name)
+    end
+  end
+
   it "shows all projects" do 
     visit "/projects"
 

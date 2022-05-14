@@ -1,9 +1,16 @@
 <a href="/projects">Projects</a>
 <a href='/volunteers'>Volunteers</a>
-<h1>All Volunteers</h1>
+  <h1>All Volunteers</h1>
 
-<% @volunteers.each do |volunteer| %>
-  <h3><a href="/volunteers/<%= volunteer.id %>"><%= volunteer.name %></a></h3>
- <a href="/volunteers/<%= volunteer.id %>/edit">Update Volunteer</a>
+  <% @volunteers.each_with_index do |volunteer, index| %>
 
-<% end %>
+    <div id="volunteer-<%= index %>">
+      <h3><a href="/volunteers/<%= volunteer.id %>"><%= volunteer.name %></a></h3>
+      <p>Hours Available: <%= volunteer.hours_available %></p>
+      <p>Is this Volunteer Registered? <%= volunteer.registered %></p>
+      <p>Volunteer Start Date:<%= volunteer.created_at %></p>
+      <p>Information Updated:<%= volunteer.updated_at %></p>
+      <a href="/volunteers/<%= volunteer.id %>/edit">Update Volunteer</a>
+      <p><%= link_to 'Delete Volunteer', "/projects/#{volunteer.id}", method: :delete %></p>
+    </div>
+  <% end %>
