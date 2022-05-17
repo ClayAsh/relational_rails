@@ -5,35 +5,36 @@ RSpec.describe "project volunteer index page" do
 	let!(:volunteer_1) {project_1.volunteers.create!(name:"John", registered:false, hours_available:5)}
 	let!(:volunteer_2) {project_1.volunteers.create!(name:"Sam", registered:true, hours_available:10)}
 	
-	it 'has links to project and volunteer index' do 
-
+	it 'has links to project index' do 
 		visit "/projects/#{project_1.id}/volunteers"
 
 		click_link 'Projects'
 		expect(current_path).to eq('/projects')
+	end
+
+	it 'has links to volunteer index' do 
+		visit "/projects/#{project_1.id}/volunteers"
 
 		click_link 'Volunteers'
 		expect(current_path).to eq('/volunteers')
 	end 
 
 	it 'has link to new volunteer' do 
-
 		visit "/projects/#{project_1.id}/volunteers"
 
 		click_link 'Sign Up to Volunteer for this Project!'
 		expect(current_path).to eq("/projects/#{project_1.id}/volunteers/new")
 	end 
 
-	it 'has link to sort volunteers' do 
-
+	it 'has link to sort volunteers alphabetically' do 
 		visit "/projects/#{project_1.id}/volunteers"
 
 		click_link 'Sort Volunteers Alphabetically'
+	
 		expect(current_path).to eq("/projects/#{project_1.id}/volunteers")
 	end 
 
 	it 'has form to filter by hours available' do 
-
 		visit "/projects/#{project_1.id}/volunteers"
 
 		fill_in 'threshold', with: '10'
@@ -45,7 +46,6 @@ RSpec.describe "project volunteer index page" do
 	end
 
 	it "shows volunteers of project" do 
-	
 		visit "/projects/#{project_1.id}/volunteers"
 
 		within('#volunteer-0') do

@@ -1,4 +1,5 @@
 class ProjectsController < ApplicationController 
+  
   def index 
      @projects = Project.ordered_by_time
   end
@@ -11,12 +12,7 @@ class ProjectsController < ApplicationController
   end
 
   def create 
-    project = Project.new ({
-      name: params[:project][:name],
-      active: params[:project][:active], 
-      funding: params[:project][:funding]
-    })
-    project.save 
+    Project.create(project_params)
     redirect_to '/projects'
   end
 
@@ -26,12 +22,7 @@ class ProjectsController < ApplicationController
 
   def update 
     project = Project.find(params[:id])
-    project.update({
-      name: params[:project][:name],
-      active: params[:project][:active], 
-      funding: params[:project][:funding]
-      })
-    project.save
+    project.update(project_params)
     redirect_to "/projects/#{project.id}"
   end
 
@@ -39,5 +30,11 @@ class ProjectsController < ApplicationController
     Project.destroy(params[:id])
     redirect_to '/projects'
   end
+
+  private 
+
+    def project_params
+      params.permit(:name, :active, :funding)
+    end
 
 end

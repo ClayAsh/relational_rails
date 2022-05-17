@@ -1,23 +1,27 @@
 require 'rails_helper'
 
-RSpec.describe 'new projectr' do
+RSpec.describe 'new project' do
 
-  it 'has link to volunteer and project index' do 
-    visit "/projects"
+	it 'has links to project index' do 
+		visit "/projects/new"
 
-    click_link 'Volunteers'
-    expect(current_path).to eq('/volunteers')
+		click_link 'Projects'
+		expect(current_path).to eq('/projects')
+	end
 
-    click_link 'Projects'
-    expect(current_path).to eq('/projects')
-  end 
+	it 'has links to volunteer index' do 
+		visit "/projects/new"
+
+		click_link 'Volunteers'
+		expect(current_path).to eq('/volunteers')
+	end 
   
   it 'can create a new project' do     
     visit '/projects/new' 
     
-    fill_in 'project[name]', with: "New project"
-    fill_in 'project[active]', with: "true"
-    fill_in 'project[funding]', with: "500"
+    fill_in 'name', with: "New project"
+    fill_in 'active', with: "true"
+    fill_in 'funding', with: "500"
    
     click_button 'Create Project' 
 

@@ -1,17 +1,12 @@
-<a href="/projects">Projects</a>
-<a href='/volunteers'>Volunteers</a>
-<a href="/projects/new">Create a New Project</a>
+<%= link_to "Create a New Project", "/projects/new"%>
 
 <h1>All Projects</h1>
-
 <% @projects.each_with_index do |project, index| %>
-
   <div id="project-<%= index %>"> 
-   <h3><a href="/projects/<%= project.id %>"><%= project.name %></a></h3>
-   <p><a href="/projects/<%= project.id %>/edit">Update Project</a></p>
-   <p><%= link_to 'Delete Project', "/projects/#{project.id}", method: :delete %></p>
-   <p>Project Start Date: <%= project.created_at %></p>
+    <h3><%= link_to "#{project.name}", "/projects/#{project.id}"%></h3>
+    <%= link_to 'Update Project', "/projects/#{project.id}/edit" %></br>
+    <%= link_to 'Delete Project', "/projects/#{project.id}", method: :delete %>
+    <p>Project Start Date:<%= project.created_at %></p>
   </div>
-
 <% end %>
 

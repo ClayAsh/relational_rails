@@ -17,12 +17,14 @@ class ProjectVolunteersController < ApplicationController
 
 	def create 
 	  project = Project.find(params[:project_id])
-		volunteer = project.volunteers.new ({
-			name: params[:volunteer][:name],
-			registered: params[:volunteer][:registered], 
-			hours_available: params[:volunteer][:hours_available]
-			})
-		volunteer.save 
+		volunteer = project.volunteers.create(volunteer_params)
 		redirect_to "/projects/#{volunteer.project_id}/volunteers"
   end
+
+		private
+
+			def volunteer_params
+				params.permit(:name, :registered, :hours_available)
+			end
+
 end

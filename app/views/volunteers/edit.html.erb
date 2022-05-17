@@ -1,15 +1,11 @@
-<a href="/projects">Projects</a>
-<a href='/volunteers'>Volunteers</a>
 
-<form action="/volunteers/<%= @volunteer.id %>" method="post">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <input type="hidden" name="_method" value="PATCH" />
-  <h2>Update volunteer</h2>
-  <p>What is your name?</p>
-  <input type='text' name='volunteer[name]' value="<%= @volunteer.name %>"/><br/>
-  <p>Are you already registered? (true or false please) </p>
-  <input type='text' name='volunteer[registered]' value="<%= @volunteer.registered %>"/><br/>
-  <p>How many hours are you available?</p>
-  <input type='text' name='volunteer[hours_available]' value="<%= @volunteer.hours_available %>"/><br/>
-  <input type='submit' value='Update volunteer'>
-</form>
+<h2>Update Volunteer</h2>
+<%= form_with url: "/volunteers/#{@volunteer.id}", method: :patch, local: true do |form| %>
+<%= form.label :name, "What is your name?" %><br/>
+<%= form.text_field :name, placeholder: "#{@volunteer.name}" %><br/>
+<%= form.label :registered, "Are you already registered? (true or false please)" %><br/>
+<%= form.text_field :registered, placeholder: "#{@volunteer.registered}" %><br/>
+<%= form.label :hours_available, "How many hours are you available?" %><br/>
+<%= form.text_field :hours_available, placeholder: "#{@volunteer.hours_available}" %><br/>
+<%= form.submit 'Update Volunteer' %>
+<% end %>

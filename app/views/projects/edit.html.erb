@@ -1,15 +1,11 @@
-<a href="/projects">Projects</a>
-<a href='/volunteers'>Volunteers</a>
 
-<form action="/projects/<%= @project.id %>" method="post">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <input type="hidden" name="_method" value="PATCH" />
-  <h2>Update Project</h2>
-  <p>What is your Project's name?</p>
-  <input type='text' name='project[name]' value="<%= @project.name %>"/><br/>
-  <p>Is this Project active? (true or false please) </p>
-  <input type='text' name='project[active]' value="<%= @project.active %>"/><br/>
-  <p>How much funding does this Project have?</p>
-  <input type='text' name='project[funding]' value="<%= @project.funding %>"/><br/>
-  <input type='submit' value='Update Project'>
-</form>
+<h2>Update Project</h2>
+<%= form_with url: "/projects/#{@project.id}", method: :patch, local: true do |form| %>
+<%= form.label :name, "What is your Project's name?" %><br/>
+<%= form.text_field :name, placeholder: "#{@project.name}" %><br/>
+<%= form.label :active, "Is this Project active? (true or false please)" %><br/>
+<%= form.text_field :active, placeholder: "#{@project.active}" %><br/>
+<%= form.label :funding, "How much funding does this Project have?" %><br/>
+<%= form.text_field :funding, placeholder: "#{@project.funding}" %><br/>
+<%= form.submit 'Update Project' %>
+<% end %>

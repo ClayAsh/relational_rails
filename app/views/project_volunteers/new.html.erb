@@ -1,14 +1,11 @@
-<a href="/projects">Projects</a>
-<a href='/volunteers'>Volunteers</a>
 
-<form action=<%= "/projects/#{@project.id}/volunteers"%> method="post">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <h2>Sign Up</h2>
-  <p>What is your name?</p>
-  <input type='text' name='volunteer[name]'/><br/>
-  <p>Are you already registered? (true or false please) </p>
-  <input type='text' name='volunteer[registered]'/><br/>
-  <p>How many hours are you available?</p>
-  <input type='text' name='volunteer[hours_available]'/><br/>
-  <input type='submit' value='Create Volunteer'>
-</form>
+<h2>Sign Up to Volunteer</h2>
+<%= form_with url: "/projects/#{@project.id}/volunteers", method: :post, local: true do |form|%>
+  <%= form.label :name, "What is your name?" %><br/>
+  <%= form.text_field :name %><br/>
+  <%= form.label :registered, "Are you already registered? (true or false please)" %><br/>
+  <%= form.text_field :registered %><br/>
+  <%= form.label :hours_available, "How many hours are you available?" %><br/>
+  <%= form.text_field :hours_available %><br/>
+  <%= form.submit 'Create Volunteer' %>
+<% end %>
