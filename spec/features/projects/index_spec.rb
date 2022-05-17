@@ -4,15 +4,19 @@ RSpec.describe 'project index page' do
   let!(:project_1) {Project.create!(name:"Mural", active:false, funding:3000)}
   let!(:project_2) {Project.create!(name:"Community Garden", active:true, funding:4000)}
 
-  it 'has link to volunteer and project index' do 
-    visit "/projects"
+	it 'has links to project index' do 
+		visit "/projects"
 
-    click_link 'Volunteers'
-    expect(current_path).to eq('/volunteers')
+		click_link 'Projects'
+		expect(current_path).to eq('/projects')
+	end
 
-    click_link 'Projects'
-    expect(current_path).to eq('/projects')
-  end 
+	it 'has links to volunteer index' do 
+		visit "/projects"
+
+		click_link 'Volunteers'
+		expect(current_path).to eq('/volunteers')
+	end 
 
 	it 'has links to project 2 show page' do 
 		visit "/projects"

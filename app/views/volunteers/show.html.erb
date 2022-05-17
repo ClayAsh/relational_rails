@@ -1,13 +1,13 @@
-<a href="/projects">Projects</a>
-<a href="/volunteers">Volunteers</a>
- <h1><%= @volunteer.name %></h1>
-  <p>Is this Volunteer registered? <%= @volunteer.registered %></p>
-  <p>Hours Available: <%= @volunteer.hours_available %></p>
-  <p>Volunteer Start Date:<%= @volunteer.created_at %></p>
-  <p>Information Updated:<%= @volunteer.updated_at %></p>
-  <p>Current/Past Projects:<%= @volunteer.project.name %></p>
+
+<h1><%= @volunteer.name %></h1>
+<p>Is this Volunteer registered? <%= @volunteer.registered %></p>
+<p>Hours Available: <%= @volunteer.hours_available %></p>
+<p>Volunteer Start Date:<%= @volunteer.created_at %></p>
+<p>Information Updated:<%= @volunteer.updated_at %></p>
+<p>Current/Past Projects:<%= @volunteer.project.name %></p>
 
 <ul>
-  <li><a href="/volunteers/<%= @volunteer.id %>/edit">Update Volunteer</a></li>
+  <li><%= link_to 'Update Volunteer', "/volunteers/#{@volunteer.id}/edit" %></li>
   <li><%= link_to 'Delete Volunteer', "/volunteers/#{@volunteer.id}", method: :delete %></li>
 </ul>
+

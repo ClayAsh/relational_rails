@@ -1,20 +1,17 @@
-  <a href="/projects">Projects</a>
-  <a href='/volunteers'>Volunteers</a>
-  <h1><%= @project.name %></h1>
-  <h4>Is this project active?</h4>
-  <p><%= @project.active %></p>
-  <h4>Funding</h4>
-  <p><%= @project.funding %></p>
-  <h4>Project Start Date</h4>
-  <p><%= @project.created_at %></p>
-  <h4>Updated at</h4>
-  <p><%= @project.updated_at %></p>
-  <p>Number of Volunteers: <%= @project.volunteers.length %></p>
+
+<h1><%= @project.name %></h1>
+<h4>Is this project active?</h4>
+<p><%= @project.active %></p>
+<h4>Funding</h4>
+<p><%= @project.funding %></p>
+<h4>Project Start Date</h4>
+<p><%= @project.created_at %></p>
+<h4>Updated at</h4>
+<p><%= @project.updated_at %></p>
+<p>Number of Volunteers: <%= @project.volunteers.length %></p>
 
 <ul>
-  <li><a href='/projects/<%= @project.id %>/volunteers'>Current Volunteers</a></li>
-  <li><a href="/projects/<%= @project.id %>/edit">Update Project</a></li>
+  <li><%= link_to "Current Volunteers", "/projects/#{@project.id}/volunteers"%></li>
+  <li><%= link_to 'Update Project', "/projects/#{@project.id}/edit" %></li>
   <li><%= link_to 'Delete Project', "/projects/#{@project.id}", method: :delete %></li>
-
 </ul>
-

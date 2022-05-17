@@ -1,21 +1,19 @@
-<a href="/projects">Projects</a>
-<a href='/volunteers'>Volunteers</a>
-    <h1>Volunteers for this Project</h1>
-    <h2><%= @project.name %></h2>
-    <% @volunteers.each_with_index do |volunteer, index|  %>
-      <div id="volunteer-<%= index %>"> 
-        <h3><%= volunteer.name %></h3> 
-        <a href="/volunteers/<%= volunteer.id %>/edit">Update Volunteer</a>
-        <p><%= link_to 'Delete Volunteer', "/projects/#{volunteer.id}", method: :delete %></p>
-        <p>Hours Available: <%= volunteer.hours_available %></p>
-        <p>Is this Volunteer Registered? <%= volunteer.registered %></p>
-        <p>Volunteer Start Date:<%= volunteer.created_at %></p>
-        <p>Information Updated:<%= volunteer.updated_at %></p>
-      </div>
-    <% end %>
-    
-<a href="/projects/<%= @project.id %>/volunteers/new">Sign Up to Volunteer for this Project!</a><br/>
-<a href="/projects/<%= @project.id %>/volunteers?sort=asc">Sort Volunteers Alphabetically</a><br/>
+
+<h1><%="Volunteers for the #{@project.name} Project"%></h1>
+<% @volunteers.each_with_index do |volunteer, index|  %>
+  <div id="volunteer-<%= index %>"> 
+    <h3><%= volunteer.name %></h3> 
+    <%= link_to "Update Volunteer", "/volunteers/#{volunteer.id}/edit" %></br>
+    <%= link_to 'Delete Volunteer', "/projects/#{volunteer.id}", method: :delete %>
+    <p>Hours Available: <%= volunteer.hours_available %></p>
+    <p>Is this Volunteer Registered? <%= volunteer.registered %></p>
+    <p>Volunteer Start Date:<%= volunteer.created_at %></p>
+    <p>Information Updated:<%= volunteer.updated_at %></p>
+  </div>
+<% end %>
+
+<%= link_to "Sign Up to Volunteer for this Project!", "/projects/#{@project.id}/volunteers/new" %></br>
+<%= link_to "Sort Volunteers Alphabetically", "/projects/#{@project.id}/volunteers?sort=asc"%>
     
 <%= form_with url: "/projects/#{@project.id}/volunteers", method: :get, local: true do |f| %><br/>
 <%= f.label :threshold, "Please enter the minimum number of hours available you would like to filter the volunteers by:"  %><br/>
