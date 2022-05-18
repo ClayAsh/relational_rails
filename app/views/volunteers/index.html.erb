@@ -1,7 +1,7 @@
 
 <h1>All Volunteers</h1>
-<% @volunteers.each_with_index do |volunteer, index| %>
-  <div id="volunteer-<%= index %>">
+<% @volunteers.each do |volunteer| %>
+  <div id="<%= volunteer.id %>">
     <h2><%= link_to "#{volunteer.name}", "/volunteers/#{volunteer.id}" %></h2>
     <p>Hours Available: <%= volunteer.hours_available %></p>
     <p>Is this Volunteer Registered? <%= volunteer.registered %></p>

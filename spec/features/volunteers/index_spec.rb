@@ -22,7 +22,7 @@ RSpec.describe 'volunteer index page' do
   it 'has link to delete volunteer' do 
 		visit "/volunteers"
 
-    within('#volunteer-0') do 
+    within("##{volunteer_2.id}") do 
       click_link 'Delete Volunteer'
     end
       expect(page).to_not have_content(volunteer_2.name)
@@ -31,7 +31,7 @@ RSpec.describe 'volunteer index page' do
 	it 'has link to update volunteer' do 
 		visit "/volunteers"
 
-    within('#volunteer-0') do 
+    within("##{volunteer_2.id}") do 
       click_link 'Update Volunteer'
 
       expect(current_path).to eq("/volunteers/#{volunteer_2.id}/edit")

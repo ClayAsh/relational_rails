@@ -30,8 +30,10 @@ RSpec.describe "project volunteer index page" do
 		visit "/projects/#{project_1.id}/volunteers"
 
 		click_link 'Sort Volunteers Alphabetically'
-	
+		
 		expect(current_path).to eq("/projects/#{project_1.id}/volunteers")
+		expect("John").to appear_before("Sam")
+		expect("Sam").to_not appear_before("John")
 	end 
 
 	it 'has form to filter by hours available' do 
@@ -48,13 +50,13 @@ RSpec.describe "project volunteer index page" do
 	it "shows volunteers of project" do 
 		visit "/projects/#{project_1.id}/volunteers"
 
-		within('#volunteer-0') do
+		within("##{volunteer_1.id}") do
 			expect(page).to have_content("John")
 			expect(page).to have_content(5)
 			expect(page).to have_content(false)
 		end 
 
-		within('#volunteer-1') do
+		within("##{volunteer_2.id}") do
 			expect(page).to have_content("Sam")
 			expect(page).to have_content(10)
 			expect(page).to have_content(true)
