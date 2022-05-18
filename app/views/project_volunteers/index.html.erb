@@ -1,7 +1,7 @@
 
 <h1><%="Volunteers for the #{@project.name} Project"%></h1>
-<% @volunteers.each_with_index do |volunteer, index|  %>
-  <div id="volunteer-<%= index %>"> 
+<% @volunteers.each do |volunteer|  %>
+  <div id="<%= volunteer.id %>"> 
     <h3><%= volunteer.name %></h3> 
     <%= link_to "Update Volunteer", "/volunteers/#{volunteer.id}/edit" %></br>
     <%= link_to 'Delete Volunteer', "/projects/#{volunteer.id}", method: :delete %>
@@ -15,8 +15,9 @@
 <%= link_to "Sign Up to Volunteer for this Project!", "/projects/#{@project.id}/volunteers/new" %></br>
 <%= link_to "Sort Volunteers Alphabetically", "/projects/#{@project.id}/volunteers?sort=asc"%>
     
+
 <%= form_with url: "/projects/#{@project.id}/volunteers", method: :get, local: true do |f| %><br/>
 <%= f.label :threshold, "Please enter the minimum number of hours available you would like to filter the volunteers by:"  %><br/>
 <%= f.text_field :threshold %><br/>
-<%= f.submit "Sort by Available Hours"%><br/>
+<%= f.submit "Sort by Available Hours" %><br/>
 <% end %> 
