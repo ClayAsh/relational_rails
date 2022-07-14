@@ -4,12 +4,12 @@ Relational Rails is a web-ready program that allows users to create and manage p
 Written in Ruby on Rails, this project highlights principles of RESTfulness and utilizes ActiveRecord & SQL.
 
 ## Learning Goals 
-<strong>This Solo Project should accomplish: </strong>
+<strong>This Solo Project should accomplish these objectives: </strong>
 <ul>
   <li>Design a one to many relationship using a schema designer</li>
   <li>Write migrations to create tables with columns of varying data types and foreign keys.</li>
   <li>Use Rails to create web pages that allow users to CRUD resources</li>
-  <li>Create instance and class methods on a Rails model that use ActiveRecord methods and helpers<li>
+  <li>Create instance and class methods on a Rails model that use ActiveRecord methods and helpers</li>
   <li>Write model and feature tests that fully cover data logic and user behavior</li>
 </ul>
 
